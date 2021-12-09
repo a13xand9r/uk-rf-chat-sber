@@ -1,9 +1,13 @@
 import axios from 'axios'
 
+let htmlCache = null as null | string
+
 const getHTML = async () => {
-    const {data} = await axios.get<string>('https://rg.ru/2007/11/12/ukrf-dok.html')
-    // console.log(data)
-    return data
+    if (!htmlCache){
+        const {data} = await axios.get<string>('https://rg.ru/2007/11/12/ukrf-dok.html')
+        htmlCache = data
+        return data
+    } else return htmlCache
 }
 
 
