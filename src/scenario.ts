@@ -13,15 +13,19 @@ import {
     SaluteRequest
 } from '@salutejs/scenario'
 import { SaluteMemoryStorage } from '@salutejs/storage-adapter-memory'
-import { noMatchHandler, runAppHandler } from './handlers'
+import { getArticleHandler, noMatchHandler, runAppHandler } from './handlers'
 import model from './intents.json'
 require('dotenv').config()
 
 const storage = new SaluteMemoryStorage()
 const intents = createIntents(model.intents)
-const { intent, match } = createMatchers<ScenarioRequest, typeof intents>()
+const { intent, match, text } = createMatchers<ScenarioRequest, typeof intents>()
 
 const userScenario = createUserScenario<ScenarioRequest>({
+    GetArticle: {
+        match: intent('/Статья', {confidence: 0.4}),
+        handle: getArticleHandler
+    }
 })
 
 const systemScenario = createSystemScenario({

@@ -1,68 +1,26 @@
 {
   "intents": {
-    "/Да": {
+    "/Статья": {
       "matchers": [
         {
           "type": "phrase",
-          "rule": "Да"
+          "rule": "@duckling.number статья"
         },
         {
           "type": "phrase",
-          "rule": "верно"
+          "rule": "статья @duckling.number"
         },
         {
           "type": "phrase",
-          "rule": "правильно"
+          "rule": "@duckling.number"
         }
       ],
-      "variables": {}
-    },
-    "/Нет": {
-      "matchers": [
-        {
-          "type": "phrase",
-          "rule": "нет"
-        },
-        {
-          "type": "phrase",
-          "rule": "неверно"
-        },
-        {
-          "type": "phrase",
-          "rule": "неправильно"
+      "variables": {
+        "articleNumber": {
+          "required": true,
+          "questions": []
         }
-      ],
-      "variables": {}
-    },
-    "/Позвони": {
-      "matchers": [
-        {
-          "type": "phrase",
-          "rule": "позвони еще раз"
-        }
-      ],
-      "variables": {}
-    },
-    "/Другой номер": {
-      "matchers": [
-        {
-          "type": "phrase",
-          "rule": "другой номер"
-        },
-        {
-          "type": "phrase",
-          "rule": "другой телефон"
-        },
-        {
-          "type": "phrase",
-          "rule": "поменяй телефон"
-        },
-        {
-          "type": "phrase",
-          "rule": "поменяй номер"
-        }
-      ],
-      "variables": {}
+      }
     }
   },
   "entities": {}
