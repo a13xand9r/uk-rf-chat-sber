@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import { webHookRout } from './routes/webHookRout'
+import { getArticle } from './api/articles'
 require('dotenv').config()
 
 const PORT = process.env.PORT ?? 5000
@@ -17,3 +18,4 @@ app.listen(PORT, () => {
 app.get('/', (_, res) => {
     res.status(200).send('Салют приложение')
 })
+// getArticle(10).then(res => console.log(res))

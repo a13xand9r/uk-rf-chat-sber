@@ -41,7 +41,8 @@ export const getArticle = async (articleNumber: number) => {
         }
         if (htmlRowsArray[i].includes(`<p><b>Статья ${articleNumber}.`)){
             // console.log(htmlRowsArray[i])
-            articleTitle = htmlRowsArray[i].replace(/[<>/bpr]/g, '')
+            articleTitle = `${htmlRowsArray[i].replace(/[<>/bpr]/g, '')}.`
+            console.log('заголовок',{title: articleTitle})
             isArticleTitleFound = true
         }
     }
