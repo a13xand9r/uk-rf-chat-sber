@@ -33,7 +33,7 @@ export const getArticleHandler: ScenarioHandler = async ({ req, res }) => {
             res.setPronounceText(addSSML(`${articleTitle}.\n${articleParagraph}`), {ssml: true})
         } else {
             res.appendBubble(`К сожалению не могу найти такую статью`)
-            res.setPronounceText(`К сожалению не могу найти такую статью`)
+            res.setPronounceText(addSSML(`К сожалению не могу найти такую статью`), {ssml: true})
         }
     }
 
