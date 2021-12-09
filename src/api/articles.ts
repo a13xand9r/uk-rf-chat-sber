@@ -11,7 +11,7 @@ export const getArticle = async (articleNumber: number) => {
     const html = await getHTML()
 
     const htmlRowsArray = html.split('\n')
-    console.log(htmlRowsArray.length)
+    // console.log(htmlRowsArray.length)
 
     let articleTitle = ''
     let articleParagraph = ''
@@ -37,8 +37,8 @@ export const getArticle = async (articleNumber: number) => {
             isArticleTitleFound = true
         }
     }
-    console.log(articleTitle)
-    console.log(articleParagraph)
+    // console.log(articleTitle)
+    // console.log(articleParagraph)
     return {
         articleTitle,
         articleParagraph
