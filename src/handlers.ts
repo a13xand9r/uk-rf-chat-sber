@@ -29,8 +29,8 @@ export const getArticleHandler: ScenarioHandler = async ({ req, res }) => {
     if (articleNumber){
         const {articleTitle, articleParagraph} = await getArticle(Number(articleNumber))
         if (articleTitle !== ''){
-            res.appendBubble(`${articleTitle}.\n${articleParagraph}`)
-            res.setPronounceText(addSSML(`${articleTitle}.\n${articleParagraph}`), {ssml: true})
+            res.appendBubble(`${articleTitle}.${articleParagraph}`)
+            res.setPronounceText(addSSML(`${articleTitle}.${articleParagraph}`), {ssml: true})
         } else {
             res.appendBubble(`К сожалению не могу найти такую статью`)
             res.setPronounceText(addSSML(`К сожалению не могу найти такую статью`), {ssml: true})
