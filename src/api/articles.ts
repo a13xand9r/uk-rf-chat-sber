@@ -2,7 +2,7 @@ import axios from 'axios'
 
 let htmlCache = null as null | string
 
-const getHTML = async () => {
+export const getHTML = async () => {
     if (!htmlCache){
         const {data} = await axios.get<string>('https://rg.ru/2007/11/12/ukrf-dok.html')
         htmlCache = data

@@ -1,10 +1,11 @@
 import { ScenarioHandler } from './types';
 import * as dictionary from './system.i18n'
-import { getArticle } from './api/articles';
+import { getArticle, getHTML } from './api/articles';
 require('dotenv').config()
 
 
 export const runAppHandler: ScenarioHandler = ({ req, res }) => {
+    getHTML()
     const keyset = req.i18n(dictionary)
     const responseText = keyset('Привет')
     res.appendBubble(responseText)
