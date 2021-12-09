@@ -33,7 +33,7 @@ export const getArticle = async (articleNumber: number) => {
         }
         if (isArticleParagraphStart){
             if (!htmlRowsArray[i].includes('(в ред.') && !htmlRowsArray[i].includes('(п.')){
-                articleParagraph = `${articleParagraph}\n\n${htmlRowsArray[i].replace(/[<>/bpr]/g, '')}`.replace(' - Федеральный закон от 08.12.2003 N 162-ФЗ', '')
+                articleParagraph = `${articleParagraph}\n${htmlRowsArray[i].replace(/[<>/bpr]/g, '')}`.replace(' - Федеральный закон от 08.12.2003 N 162-ФЗ', '')
             }
             if (htmlRowsArray[i].includes(`</p>`) && paragraphLinesCount > 0){
                 isArticleParagraphStart = false
