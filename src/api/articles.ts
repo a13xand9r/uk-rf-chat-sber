@@ -3,11 +3,15 @@ import axios from 'axios'
 let htmlCache = null as null | string
 
 export const getHTML = async () => {
-    if (!htmlCache){
-        const {data} = await axios.get<string>('https://rg.ru/2007/11/12/ukrf-dok.html')
+    if (!htmlCache) {
+        const { data } = await axios.get<string>('https://rg.ru/2007/11/12/ukrf-dok.html')
         htmlCache = data
+        console.log('request done')
         return data
-    } else return htmlCache
+    } else {
+        console.log('get from cache')
+        return htmlCache
+    }
 }
 
 
