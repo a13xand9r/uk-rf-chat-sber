@@ -32,7 +32,9 @@ export const getArticle = async (articleNumber: number) => {
             isArticleParagraphStart = true
         }
         if (isArticleParagraphStart){
-            if (!htmlRowsArray[i].includes('(в ред.') && !htmlRowsArray[i].includes('(п.')) articleParagraph = articleParagraph + htmlRowsArray[i].replace(/[<>/bpr]/g, '') + '\n'
+            if (!htmlRowsArray[i].includes('(в ред.') && !htmlRowsArray[i].includes('(п.')){
+                articleParagraph = `${articleParagraph + htmlRowsArray[i].replace(/[<>/bpr]/g, '')}${htmlRowsArray[i].includes(`</p>`) ? '\n\n' : ''}`
+            }
             if (htmlRowsArray[i].includes(`</p>`) && paragraphLinesCount > 0){
                 isArticleParagraphStart = false
                 break
@@ -40,14 +42,10 @@ export const getArticle = async (articleNumber: number) => {
             paragraphLinesCount++
         }
         if (htmlRowsArray[i].includes(`<p><b>Статья ${articleNumber}.`)){
-            // console.log(htmlRowsArray[i])
-            articleTitle = `${htmlRowsArray[i].replace(/[<>/bpr]/g, '')}.`
-            console.log('заголовок',{title: articleTitle})
+            articleTitle = htmlRowsArray[i].replace(/[<>/bpr]/g, '')
             isArticleTitleFound = true
         }
     }
-    // console.log(articleTitle)
-    // console.log(articleParagraph)
     return {
         articleTitle,
         articleParagraph

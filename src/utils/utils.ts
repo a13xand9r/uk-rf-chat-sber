@@ -5,7 +5,18 @@ export function getRandomFromArray<T>(arr: T[]): T {
 
 const ssmlObject = {
     'статью': 'статью\'',
-
+    'а)': 'а.',
+    'б)': 'б.',
+    'в)': 'в.',
+    'г)': 'г.',
+    'е)': 'е.',
+    'е.1)': 'е.1.',
+    'ж)': 'ж.',
+    'з)': 'з.',
+    'и)': 'и.',
+    'к)': 'к.',
+    'л)': 'л.',
+    'н)': 'н.',
 }
 
 export function addSSML(text: string): string {
