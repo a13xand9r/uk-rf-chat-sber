@@ -16,6 +16,6 @@ app.listen(PORT, () => {
 })
 
 app.get('/', (_, res) => {
-    res.status(200).send('Салют приложение')
+    res.status(200).send('Уголовный кодекс')
 })
 // getArticle(240).then(res => console.log(res))
