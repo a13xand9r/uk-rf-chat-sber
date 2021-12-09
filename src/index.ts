@@ -1,3 +1,4 @@
+import { getArticle } from './api/articles';
 import express from 'express'
 import cors from 'cors'
 import { webHookRout } from './routes/webHookRout'
@@ -18,3 +19,4 @@ app.get('/', (_, res) => {
     res.status(200).send('Салют приложение')
 })
 
+console.log(getArticle(228))
