@@ -17,6 +17,7 @@ const ssmlObject = {
     'к)': 'к.',
     'л)': 'л.',
     'н)': 'н.',
+    '\n': ' ',
 }
 
 export function addSSML(text: string): string {

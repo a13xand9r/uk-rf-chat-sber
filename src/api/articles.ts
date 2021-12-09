@@ -33,7 +33,8 @@ export const getArticle = async (articleNumber: number) => {
         }
         if (isArticleParagraphStart){
             if (!htmlRowsArray[i].includes('(в ред.') && !htmlRowsArray[i].includes('(п.')){
-                articleParagraph = `\n\n${articleParagraph + htmlRowsArray[i].replace(/[<>/bpr]/g, '')}`.replace(' - Федеральный закон от 08.12.2003 N 162-ФЗ', '')
+                console.log('LINE', htmlRowsArray[i])
+                articleParagraph = `${articleParagraph}\n${htmlRowsArray[i].replace(/[<>/bpr]/g, '')}`.replace(' - Федеральный закон от 08.12.2003 N 162-ФЗ', '')
             }
             if (htmlRowsArray[i].includes(`</p>`) && paragraphLinesCount > 0){
                 isArticleParagraphStart = false
@@ -46,11 +47,9 @@ export const getArticle = async (articleNumber: number) => {
             isArticleTitleFound = true
         }
     }
-    if (articleParagraph){
-
-    }
+    console.log(articleParagraph)
     return {
-        articleTitle: articleTitle.replace('\\r', ''),
-        articleParagraph: articleParagraph.replace('\\r', '')
+        articleTitle: articleTitle.replace(/\r/g, ''),
+        articleParagraph: articleParagraph.replace(/\r/g, '')
     }
 }

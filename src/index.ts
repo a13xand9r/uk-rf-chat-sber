@@ -18,4 +18,4 @@ app.listen(PORT, () => {
 app.get('/', (_, res) => {
     res.status(200).send('Салют приложение')
 })
-// getArticle(10).then(res => console.log(res))
+// getArticle(240).then(res => console.log(res))
